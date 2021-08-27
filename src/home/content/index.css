@@ -5,9 +5,12 @@
 }
 .contents{
     height: 50px;
-    background: aliceblue;
+    background-color: rgb(211, 205, 205);
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-around;
+}
+.contents span{
+    color: #555;
 }

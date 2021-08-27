@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component, Fragment } from "react";
+import Content from '../home/content/index'
 import { Modal } from 'antd-mobile';
 import './min.css'
 
@@ -60,7 +61,7 @@ class Min extends Component {
         const res_list = this.state.res_list.data
         if (res_list !== undefined) {
             const arr = res_list.duoduanPackageList.map((itme) => {
-                console.log(itme);
+                // console.log(itme);
                 return <div key={itme.skuId} id="collocation">
                     <img src={itme.url} alt="" />
                     <h6>{itme.packageName}</h6>
@@ -103,6 +104,7 @@ class Min extends Component {
                         {this.content_list()}
                     </div>
                 </div>
+                <Content/>
             </Fragment>
         )
     }

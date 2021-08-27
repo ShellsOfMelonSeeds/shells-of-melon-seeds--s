@@ -9,6 +9,8 @@ import register from './login/register.jsx'
 import cardata from './carList/cardata.jsx'
 import minNone from './minnone/minNone.jsx'
 import mindata from './min/mindata.jsx'
+import details from "./details/details"
+import searchs from './home/search/searchs'
 
 
 import Homepage from './home/index'
@@ -16,10 +18,14 @@ import Homepage from './home/index'
 import ClassiFication from './classification/index'
 
 class App extends Component {
+    // componentDidMount(){
+    //     this.props.history.push('/home')
+    // }
+
+
     render() {
         return (
             <Fragment>
-                
                 <Route path='/home' component={Homepage}></Route>
                 <Route path="/classification" component={ClassiFication}></Route>
                 <Route path="/min" component={Min}></Route>
@@ -29,6 +35,8 @@ class App extends Component {
                 <Route path="/car" component={carList}></Route>
                 <Route path="/cardata" component={cardata}></Route>
                 <Route path="/mindata" component={mindata}></Route>
+                <Route path="/details" component={details}></Route>
+                <Route path="/searchs" component={searchs}></Route>
             </Fragment>
         )
     }

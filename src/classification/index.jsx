@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { WingBlank, Button, ActionSheet, Grid } from 'antd-mobile';
+import Search from '../home/search/index'
+import Content from '../home/content/index'
 import './index.css'
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 let wrapProps;
@@ -24,6 +26,7 @@ class ClassiFication extends Component {
         })
     }
     render() {
+        // console.log(this.props.history)
         const { classification } = this.state
         if (classification === '') {
             return (<div>...</div>)
@@ -31,46 +34,45 @@ class ClassiFication extends Component {
         const productDetailss = classification.map(item => {
             return item.productDetailss
         })
-        console.log(productDetailss);
+        // console.log(productDetailss);
         const data1 = productDetailss[0].map((item) => ({
             icon: item.url,
             name: item.title,
             price: item.price,
-            id: item.id
+            id: item.skuId
         }));
         const data2 = productDetailss[2].map((item) => ({
             icon: item.url,
             name: item.title,
             price: item.price,
-            id: item.id
+            id: item.skuId
         }));
         const data3 = productDetailss[14].map((item) => ({
             icon: item.url,
             name: item.title,
             price: item.price,
-            id: item.id
+            id: item.skuId
         }));
         return (
             <div className='nvalists'>
+                <Search/>
                 <div>
                     <WingBlank>
                         <Button>热门推荐</Button>
                     </WingBlank>
                     <Grid data={data1}
-                        // activeClassName='123'
-                        // activeStyle={true}
-                        onClick={
-                            name => console.log(name)
-                        }
                         columnNum={3}
                         renderItem={dataItem => (
-                            <div style={{ padding: '12.5px' }}>
+                            <div style={{ padding: '12.5px' }}
+                            onClick={() => {this.props.history.push(`/details/?skuId=${dataItem.id}`)}}
+                            >
                                 <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" />
                                 <div style={{ color: '#888', fontSize: '10px', marginTop: '12px' }}>
                                     <span>{dataItem.name}</span>
                                 </div>
                                 <span>￥{dataItem.price}</span>
                             </div>
+                            
                         )}
                     />
                 </div>
@@ -81,12 +83,10 @@ class ClassiFication extends Component {
                     <Grid data={data2}
                         // activeClassName='123'
                         // activeStyle={true}
-                        onClick={
-                            name => console.log(name)
-                        }
                         columnNum={3}
                         renderItem={dataItem => (
-                            <div style={{ padding: '12.5px' }}>
+                            <div style={{ padding: '12.5px' }}
+                            onClick={() => {this.props.history.push(`/details/?skuId=${dataItem.id}`)}}>
                                 <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" />
                                 <div style={{ color: '#888', fontSize: '8px', marginTop: '12px' }}>
                                     <span>{dataItem.name}</span>
@@ -103,12 +103,10 @@ class ClassiFication extends Component {
                     <Grid data={data3}
                         // activeClassName='123'
                         // activeStyle={true}
-                        onClick={
-                            name => console.log(name)
-                        }
                         columnNum={3}
                         renderItem={dataItem => (
-                            <div style={{ padding: '12.5px' }}>
+                            <div style={{ padding: '12.5px' }}
+                            onClick={() => {this.props.history.push(`/details/?skuId=${dataItem.id}`)}}>
                                 <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="" />
                                 <div style={{ color: '#888', fontSize: '8px', marginTop: '12px' }}>
                                     <span>{dataItem.name}</span>
@@ -118,6 +116,7 @@ class ClassiFication extends Component {
                         )}
                     />
                 </div>
+                <Content/>
             </div>
         );
     }

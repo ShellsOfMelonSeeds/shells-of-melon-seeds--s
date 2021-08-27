@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Content from '../home/content/index'
 import axios from 'axios'
 import './carlist.css'
 import { NavBar, Icon } from 'antd-mobile';
@@ -102,9 +103,9 @@ class carList extends Component {
             let num = 0;
             this.state.money.map((itme, index) => {
                 num += itme * this.state.arr_list[index]
-                console.log(1);
+                // console.log(1);
             })
-            console.log(2);
+            // console.log(2);
             this.setState({ num_money: num })
             this.forceUpdate()
         })
@@ -120,7 +121,7 @@ class carList extends Component {
             axios.post(`/api/plus/${this.state.obj}/${KeyId}/${target.previousSibling.value}`)
             // console.log(res);
             this.newcommper()
-            console.log(11);
+            // console.log(11);
             // this.forceUpdate()
         }
         if (target.className == 'reduce' && target.nextSibling.value > 1) {
@@ -130,13 +131,15 @@ class carList extends Component {
             axios.post(`/api/plus/${this.state.obj}/${KeyId}/${target.nextSibling.value}`)
             // console.log(res);
             this.newcommper()
-            console.log(22);
+            // console.log(22);
             // this.forceUpdate()
         }
     }
 
     settlement = async () => {
        let res = await axios.post(`/api/Purchased/${this.state.obj}/`)
+    //    this.forceUpdate()
+       this.newcommper()
        console.log(res);
     }
 
@@ -163,7 +166,9 @@ class carList extends Component {
                     <span>合计￥{qian}</span>
                     <button onClick={this.settlement}>结算</button>
                 </div>
+                <Content/>
             </div>
+            
         )
     }
 }
