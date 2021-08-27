@@ -1,0 +1,7 @@
+.Homepage{
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* overflow-x: scroll; */
+}

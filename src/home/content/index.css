@@ -1,0 +1,13 @@
+.content{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.contents{
+    height: 50px;
+    background: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}

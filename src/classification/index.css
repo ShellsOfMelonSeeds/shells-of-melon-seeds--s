@@ -1,0 +1,7 @@
+/* .nvalist{
+    overflow-x: scroll;
+} */
+.nvalists{
+    height: 100%;
+    overflow-x: scroll;
+}
