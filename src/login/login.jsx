@@ -3,8 +3,8 @@ import { Toast } from 'antd-mobile';
 import axios from 'axios'
 import "./login.css"
 import 'antd-mobile/dist/antd-mobile.css';
+// 为实验git
 class login extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -12,20 +12,17 @@ class login extends Component {
             password: ''
         }
     }
-
     // 获取用户名
     userList = (event) => {
         let san = document.getElementById('san');
         san.innerHTML = '';
         this.setState.username = event.target.value
-
     }
     // 获取密码
     passList = (event) => {
         let sant = document.getElementById('sant');
         sant.innerHTML = '';
         this.setState.password = event.target.value
-
     }
     // 跳转注册
     btnList = () => {
@@ -62,7 +59,6 @@ class login extends Component {
     render() {
         return (
             <div>
-                
                 <form action="" id="formList">
                     <h2>账号登陆</h2>
                     <div>
@@ -89,7 +85,6 @@ class login extends Component {
 function successToast() {
     Toast.success('登陆成功', 1);
 }
-
 function failToast() {
     Toast.fail('用户名或密码错误', 1);
 }
